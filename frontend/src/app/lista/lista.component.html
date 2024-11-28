@@ -1,1 +1,47 @@
+
 <p>lista works!</p>
+<link rel="stylesheet" href="lista.component.css">
+
+<div class="container">
+    <h1>Gerenciamento de Fichas</h1>
+    <div class="search-bar">
+    <input type="text" id="search" placeholder="Pesquisar...">
+    <button onclick="novoRegistro()">Novo</button>
+    <button onclick="importarFicha()">Importar Ficha</button>
+    </div>
+    <table>
+    <thead>
+    <tr>
+    <th>Código</th>
+    <th>Nome</th>
+    <th>Documento</th>
+    <th>Ações</th>
+    </tr>
+    </thead>
+    <tbody id="tabela-dados">
+    <tr>
+    <td>3423423</td>
+    <td>Maria da Silva</td>
+    <td>RG 234234234234</td>
+    <td><button class="btn btn-edit" onclick="editarRegistro(this)">Editar</button></td>
+    </tr>
+    <tr>
+    <td>3423424</td>
+    <td>João Souza</td>
+    <td>CPF 12345678901</td>
+    <td><button class="btn btn-edit" onclick="editarRegistro(this)">Editar</button></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <script>
+       function novoRegistro() {
+         alert("Novo registro será adicionado.");
+       }
+       function importarFicha() {
+         alert("Funcionalidade de importação de ficha.");
+       }
+       function editarRegistro(button) {
+         alert("Editando registro.");
+       }
+    </script>
