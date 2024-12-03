@@ -1,47 +1,66 @@
+<p class="text-center fs-4 mb-4"><strong>Lista de Gerenciamento de Fichas</strong></p>
 
-<p>lista works!</p>
 <link rel="stylesheet" href="lista.component.css">
 
-<div class="container">
-    <h1>Gerenciamento de Fichas</h1>
-    <div class="search-bar">
-    <input type="text" id="search" placeholder="Pesquisar...">
-    <button onclick="novoRegistro()">Novo</button>
-    <button onclick="importarFicha()">Importar Ficha</button>
+<div class="container mt-4 p-4 bg-light rounded shadow-sm">
+
+  <h1 class="text-center mb-4">Gerenciamento de Fichas</h1>
+
+
+  <div class="d-flex justify-content-between mb-4">
+    <div class="d-flex">
+      <input type="text" id="search" class="form-control me-2" placeholder="Pesquisar...">
+      <button class="btn btn-primary ms-2" onclick="novoRegistro()">Novo</button>
+      <button class="btn btn-secondary ms-2" onclick="listarPacientes()">Importar Ficha</button>
     </div>
-    <table>
-    <thead>
-    <tr>
-    <th>Código</th>
-    <th>Nome</th>
-    <th>Documento</th>
-    <th>Ações</th>
-    </tr>
+  </div>
+
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>Código</th>
+        <th>Nome</th>
+        <th>Documento</th>
+        <th>Ações</th>
+      </tr>
     </thead>
     <tbody id="tabela-dados">
-    <tr>
-    <td>3423423</td>
-    <td>Maria da Silva</td>
-    <td>RG 234234234234</td>
-    <td><button class="btn btn-edit" onclick="editarRegistro(this)">Editar</button></td>
-    </tr>
-    <tr>
-    <td>3423424</td>
-    <td>João Souza</td>
-    <td>CPF 12345678901</td>
-    <td><button class="btn btn-edit" onclick="editarRegistro(this)">Editar</button></td>
-    </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <button class="btn btn-warning btn-sm" onclick="editarRegistro(this)">Editar</button>
+          <button class="btn btn-danger btn-sm ms-2" onclick="removerPaciente(this)">Deletar</button>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <button class="btn btn-warning btn-sm" onclick="editarRegistro(this)">Editar</button>
+          <button class="btn btn-danger btn-sm ms-2" onclick="removerPaciente(this)">Deletar</button>
+        </td>
+      </tr>
     </tbody>
-    </table>
-    </div>
-    <script>
-       function novoRegistro() {
-         alert("Novo registro será adicionado.");
-       }
-       function importarFicha() {
-         alert("Funcionalidade de importação de ficha.");
-       }
-       function editarRegistro(button) {
-         alert("Editando registro.");
-       }
-    </script>
+  </table>
+</div>
+
+<script>
+  function novoRegistro() {
+    alert("Novo registro será adicionado.");
+  }
+
+  function importarFicha() {
+    alert("Funcionalidade de importação de ficha.");
+  }
+
+  function editarRegistro(button) {
+    alert("Editando registro.");
+  }
+
+  function deletarRegistro(button) {
+    alert("Deletando registro.");
+  }
+</script>

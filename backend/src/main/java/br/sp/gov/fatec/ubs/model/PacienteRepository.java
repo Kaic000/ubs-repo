@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PacienteRepository  extends JpaRepository<PacienteEntity, Long>  {
+public interface PacienteRepository  extends JpaRepository<Paciente, Long>  {
     
     @Query(value = "select * from produto where descritivo like ?1 ",  nativeQuery = true)
-    List<PacienteEntity> fazerBusca(String busca);
+    List<Paciente> fazerBusca(String busca);
 }

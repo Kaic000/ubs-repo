@@ -1,0 +1,26 @@
+p{
+  color: brown;
+  font-size: 34px;
+  text-align: center;
+}
+button{
+  color: rgb(0, 0, 0);
+  border-radius: 12px;
+  padding: 10px 34px;
+  font-size: 18px;
+  background-color: rgb(91, 172, 222);
+  transition-duration: 0.8s;
+}
+button:hover{
+  background-color: aquamarine;
+  color:rgb(75, 122, 126);
+}
+.container{
+  border: 2px solid #63abbd;
+  padding:20px 20px 20px 20px; 
+  border-radius: 10px;
+  width:95%; 
+  background-color: rgb(207, 227, 247);
+  text-align: left;
+  
+}

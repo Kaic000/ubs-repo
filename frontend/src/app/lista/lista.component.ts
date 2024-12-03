@@ -1,34 +1,47 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { PacienteService } from '../service/paciente.service';
+import { Paciente } from '../model/paciente';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-lista',
-  standalone: true,
-  imports: [FormsModule],
   templateUrl: './lista.component.html',
-  styleUrl: './lista.component.css'
+  styleUrls: ['./lista.component.css'],
+  providers: [PacienteService]
 })
-export class ListaComponent {
-    search = '';
-  fichas = [
-    { codigo: 3423423, nome: 'Kaic Santos', documento: 'RG 234234234234' },
-    { codigo: 3423424, nome: 'Pedro Padoan', documento: 'CPF 12345678901' }
-  ];
+export class ListaComponent implements OnInit {
+  public pacientes: Paciente[] = [];
+  public mensagem: string = "";
 
-  novoRegistro() {
-    alert('Novo registro será adicionado.');
+  constructor(private pacienteService: PacienteService) { }
+
+  ngOnInit(): void {
+    this.listarPacientes();
   }
 
-  importarFicha() {
-    alert('Funcionalidade de importação de ficha.');
+ 
+  listarPacientes(): void {
+    this.pacienteService.listar().subscribe({
+      next: (data) => {
+        this.pacientes = data; 
+      },
+      error: (err) => {
+        this.mensagem = "Erro ao carregar lista de pacientes. Tente novamente mais tarde.";
+      }
+    });
   }
 
-  editarRegistro(codigo: number) {
-    const ficha = this.fichas.find(f => f.codigo === codigo);
-    if (ficha) {
-      alert(`Editando registro de ${ficha.nome} (${ficha.codigo}).`);
-    } else {
-      alert('Registro não encontrado.');
-    }
+
+  removerPaciente(codigo: number) {
+    this.pacienteService.remove(codigo).subscribe({
+      next: () => {
+        this.mensagem = "Paciente removido com sucesso!";
+        this.listarPacientes(); 
+      },
+      error: (err) => {
+        this.mensagem = "Erro ao remover paciente.";
+      }
+    });
   }
 }
