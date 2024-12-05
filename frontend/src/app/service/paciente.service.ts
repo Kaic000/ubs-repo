@@ -1,28 +1,19 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Paciente } from '../model/paciente';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Paciente } from '../model/paciente';
 
 @Injectable({
-  providedIn: 'root'
-
+  providedIn: 'root',
 })
+
+
 export class PacienteService {
 
-  constructor(private http : HttpClient) { }
-  gravar(obj: Paciente): Observable<Paciente>
-    {return this.http.post<Paciente>("http://localhost:8081/api/paciente", obj);
-    }
-    alterar(obj: Paciente): Observable<Paciente>{
-      return this.http.put<Paciente>("http://localhost:8081/api/paciente", obj);
-    }
-    remove(codigo: number): Observable<Paciente>{
-      return this.http.delete<Paciente>("http://localhost:8081/api/paciente/" + codigo);
-    }
-    ler(codigo: number): Observable<Paciente>{
-      return this.http.get<Paciente>("http://localhost:8081/api/paciente/" + codigo);
-    }
-    listar(): Observable<Paciente[]>{
-      return this.http.get<Paciente[]>("http://localhost:8081/api/paciente");
-    }
+  constructor(private http: HttpClient) { }
+
+  public salvar(obj: Paciente): Observable<Paciente> {
+    return this.http.post<Paciente>('http://localhost:8081/pacientes', obj);
+  }
+
 }

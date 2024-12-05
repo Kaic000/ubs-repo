@@ -1,5 +1,5 @@
 export class Paciente {
-    public codigo: number = 0;
+    public id: number = 0;
     public nomeCompleto: string = "";
     public nomeSocial: string = "";
     public nomeMae: string = "";
