@@ -1,19 +1,17 @@
-package br.sp.gov.fatec.ubs.model;
+package br.sp.gov.fatec.ubs.backend.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
-@Entity
-@Table(name = "paciente")
+@Entity(name = "paciente")
 public class Paciente {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String nomeCompleto;
+    private String nome;
     private String nomeSocial;
     private String nomeMae;
     private String nomePai;
@@ -48,12 +46,12 @@ public class Paciente {
         this.id = id;
     }
  
-    public String getNomeCompleto() {
-        return nomeCompleto;
+    public String getNome() {
+        return nome;
     }
  
-    public void setNomeCompleto(String nomeCompleto) {
-        this.nomeCompleto = nomeCompleto;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
  
     public String getNomeSocial() {

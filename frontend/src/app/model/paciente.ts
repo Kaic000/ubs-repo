@@ -1,6 +1,6 @@
 export class Paciente {
     public id: number = 0;
-    public nomeCompleto: string = "";
+    public nome: string = "";
     public nomeSocial: string = "";
     public nomeMae: string = "";
     public nomePai: string = "";

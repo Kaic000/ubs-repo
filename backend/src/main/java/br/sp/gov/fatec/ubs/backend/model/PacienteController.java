@@ -1,4 +1,4 @@
-package br.sp.gov.fatec.ubs.model;
+package br.sp.gov.fatec.ubs.backend.model;
  
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins="*")
-@RequestMapping({"/pacientes"}) 
 @RestController
+@RequestMapping({"/paciente"}) 
 public class PacienteController {
     @Autowired
     PacienteRepository bd;
@@ -45,7 +45,7 @@ public class PacienteController {
     @PutMapping(value="/{idPaciente}")
     public Paciente atualizarPaciente(@PathVariable("idPaciente") long id, @RequestBody Paciente paciente){
         return bd.findById(id).map(record->{
-            record.setNomeCompleto(paciente.getNomeCompleto());
+            record.setNome(paciente.getNome());
             return bd.save(record);
         }).orElseGet(()->{
             paciente.setId(id);
