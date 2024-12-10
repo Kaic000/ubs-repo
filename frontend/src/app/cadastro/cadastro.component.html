@@ -2,7 +2,6 @@
 <h4>Formulário de Cadastro</h4>
 <link rel="stylesheet" href="cadastro.component.css">
 
-<form>
   <div class="form-group">
     <label for="id">ID</label>
     <input type="id" [(ngModel)]="obj.id" class="form-input" />
@@ -10,6 +9,10 @@
   <div class="form-group">
     <label for="nome">Nome Completo</label>
     <input type="nome" [(ngModel)]="obj.nome" class="form-input" />
+  </div>
+  <div class="form-group">
+    <label for="cpf">CPF (se existente)</label>
+    <input type="cpf" [(ngModel)]="obj.cpf" class="form-input" />
   </div>
   <div class="form-group">
     <label for="nomeSocial">Nome Social</label>
@@ -96,10 +99,6 @@
     <input type="dadosEndereco" [(ngModel)]="obj.dadosEndereco" class="form-input" />
   </div>
   <div class="form-group">
-    <label for="cpf">CPF (se existente)</label>
-    <input type="cpf" [(ngModel)]="obj.cpf" class="form-input" />
-  </div>
-  <div class="form-group">
     <label for="identidade">Identidade (se existente)</label>
     <input type="identidade" [(ngModel)]="obj.identidade" class="form-input" />
   </div>
@@ -109,4 +108,3 @@
       <button (click)="salvar();" class="submit-btn">Enviar</button>
     </div>
   </div>
-</form>
