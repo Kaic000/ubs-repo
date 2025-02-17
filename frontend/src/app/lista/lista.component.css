@@ -1,73 +1,79 @@
-/* Estilo para o título */
-h4 {
-    text-align: center;
-    font-size: 26px;
+/* Estilos Gerais */
+body {
     font-family: 'Arial', sans-serif;
-    margin-bottom: 30px;
-    color: #00796b; /* Verde suave, relacionado à área da saúde */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fa;
 }
 
-/* Cartão de cada paciente */
+h4 {
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 .paciente-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 15px;
+    padding: 20px;
     display: flex;
-    justify-content: center;
-    margin-bottom: 25px;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    max-width: 400px;
 }
 
-/* Informações do paciente */
 .paciente-info {
-    background-color: #e0f2f1; /* Cor suave de fundo (verde claro) */
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-    padding: 25px;
     width: 100%;
-    max-width: 450px;
-    border: 1px solid #00796b; /* Cor de borda combinando com o verde */
+    margin-bottom: 20px;
 }
 
-/* Estilo para cada campo (nome, cpf, id) */
 .paciente-field {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 20px;
-    font-family: 'Arial', sans-serif;
+    margin-bottom: 10px;
 }
 
-/* Estilo para os rótulos e valores */
 .label {
     font-weight: bold;
-    color: #00796b; /* Verde mais forte para destacar os rótulos */
-    font-size: 16px;
+    color: #555;
 }
 
 .value {
-    font-size: 16px;
-    color: #555; /* Cinza suave para os valores */
-    word-wrap: break-word;
+    color: #333;
 }
 
-/* Último campo sem margem inferior */
-.paciente-field:last-child {
-    margin-bottom: 0;
+.paciente-actions {
+    display: flex;
+    gap: 10px;
 }
 
-/* Responsividade para dispositivos móveis */
-@media (max-width: 600px) {
-    .paciente-info {
-        padding: 20px;
-    }
+.btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
 
-    .paciente-field {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.edit {
+    background-color: #007bff;
+    color: #fff;
+}
 
-    .label {
-        margin-bottom: 5px;
-        font-size: 15px;
-    }
+.edit:hover {
+    background-color: #0056b3;
+}
 
-    .value {
-        font-size: 14px;
-    }
+.delete {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.delete:hover {
+    background-color: #c82333;
 }
