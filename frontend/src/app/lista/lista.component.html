@@ -1,23 +1,137 @@
-<link rel="stylesheet" href="lista.component.css">
-<p></p>
-<h4>{{mensagem}}</h4>
-<div *ngFor="let paciente of pacientes" class="paciente-card">
-    <div class="paciente-info">
-        <div class="paciente-field">
-            <span class="label">Nome:</span>
-            <span class="value">{{paciente.nome}}</span>
+<div class="container mt-4">
+    <div class="alert alert-warning alert-dismissible fade show" *ngIf="mensagem" role="alert">
+        {{ mensagem }}
+        <button type="button" class="close" (click)="mensagem = ''" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div *ngIf="selecionado" class="card shadow-sm mt-4">
+        <div class="card-header bg-gradient-primary text-white">
+            <h5 class="mb-0"><i class="fas fa-user-edit mr-2"></i>Editar Paciente</h5>
         </div>
-        <div class="paciente-field">
-            <span class="label">CPF:</span>
-            <span class="value">{{paciente.cpf}}</span>
-        </div>
-        <div class="paciente-field">
-            <span class="label">ID:</span>
-            <span class="value">{{paciente.id}}</span>
+        <div class="card-body">
+            <form (ngSubmit)="salvar()" class="needs-validation" novalidate>
+                <div class="form-group">
+                    <label for="nome" class="font-weight-bold">Nome:</label>
+                    <input type="text" id="nome" [(ngModel)]="selecionado.nome" name="nome" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="cpf" class="font-weight-bold">CPF:</label>
+                    <input type="text" id="cpf" [(ngModel)]="selecionado.cpf" name="cpf" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="nomeSocial" class="font-weight-bold">Nome Social:</label>
+                    <input type="text" id="nomeSocial" [(ngModel)]="selecionado.nomeSocial" name="nomeSocial" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="nomeMae" class="font-weight-bold">Nome da Mãe:</label>
+                    <input type="text" id="nomeMae" [(ngModel)]="selecionado.nomeMae" name="nomeMae" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="dataNascimento" class="font-weight-bold">Data de Nascimento:</label>
+                    <input type="text" id="dataNascimento" [(ngModel)]="selecionado.dataNascimento" name="dataNascimento" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="sexo" class="font-weight-bold">Sexo:</label>
+                    <input type="text" id="sexo" [(ngModel)]="selecionado.sexo" name="sexo" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="nacionalidade" class="font-weight-bold">Nacionalidade:</label>
+                    <input type="text" id="nacionalidade" [(ngModel)]="selecionado.nacionalidade" name="nacionalidade" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="municipioNascimento" class="font-weight-bold">Município de Nascimento:</label>
+                    <input type="text" id="municipioNascimento" [(ngModel)]="selecionado.municipioNascimento" name="municipioNascimento" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="racaCor" class="font-weight-bold">Raça/Cor:</label>
+                    <input type="text" id="racaCor" [(ngModel)]="selecionado.racaCor" name="racaCor" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="frequentaEscola" class="font-weight-bold">Frequenta Escola:</label>
+                    <input type="text" id="frequentaEscola" [(ngModel)]="selecionado.frequentaEscola" name="frequentaEscola" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="escolaridade" class="font-weight-bold">Escolaridade:</label>
+                    <input type="text" id="escolaridade" [(ngModel)]="selecionado.escolaridade" name="escolaridade" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="situacaoFamiliar" class="font-weight-bold">Situação Familiar:</label>
+                    <input type="text" id="situacaoFamiliar" [(ngModel)]="selecionado.situacaoFamiliar" name="situacaoFamiliar" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="vinculoEstabelecido" class="font-weight-bold">Estabelecimento de Vínculo:</label>
+                    <input type="text" id="vinculoEstabelecido" [(ngModel)]="selecionado.vinculoEstabelecido" name="vinculoEstabelecido" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="cadastroEstabelecido" class="font-weight-bold">Estabelecimento de Cadastro:</label>
+                    <input type="text" id="cadastroEstabelecido" [(ngModel)]="selecionado.cadastroEstabelecido" name="cadastroEstabelecido" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="deficiencia" class="font-weight-bold">Deficiência:</label>
+                    <input type="text" id="deficiencia" [(ngModel)]="selecionado.deficiencia" name="deficiencia" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="tipoDeficiencia" class="font-weight-bold">Detalhe da Deficiência:</label>
+                    <input type="text" id="tipoDeficiencia" [(ngModel)]="selecionado.tipoDeficiencia" name="tipoDeficiencia" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="contatoCelular" class="font-weight-bold">Celular:</label>
+                    <input type="text" id="contatoCelular" [(ngModel)]="selecionado.contatoCelular" name="contatoCelular" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="residencial" class="font-weight-bold">Telefone Residencial:</label>
+                    <input type="text" id="contatoResidencial" [(ngModel)]="selecionado.contatoResidencial" name="contatoResidencial" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="comercial" class="font-weight-bold">Telefone Comercial:</label>
+                    <input type="text" id="contatoComercial" [(ngModel)]="selecionado.contatoComercial" name="contatoComercial" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="contato" class="font-weight-bold">Email:</label>
+                    <input type="text" id="contatoEmail" [(ngModel)]="selecionado.contatoEmail" name="contatoEmail" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="origemEndereco" class="font-weight-bold">Origem do Endereço:</label>
+                    <input type="text" id="origemEndereco" [(ngModel)]="selecionado.origemEndereco" name="origemEndereco" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="endereco" class="font-weight-bold">Dados Endereço:</label>
+                    <input type="text" id="dadosEndereco" [(ngModel)]="selecionado.dadosEndereco" name="dadosEndereco" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="identidade" class="font-weight-bold">Identidade:</label>
+                    <input type="text" id="identidade" [(ngModel)]="selecionado.identidade" name="identidade" class="form-control">
+                </div>
+                <div class="form-group text-right">
+                    <button type="submit" class="btn btn-success"><i class="fas fa-save mr-2"></i>Salvar</button>
+                    <button type="button" class="btn btn-secondary ml-2" (click)="cancelarEdicao()"><i class="fas fa-times mr-2"></i>Cancelar</button>
+                </div>
+            </form>
         </div>
     </div>
-    <div class="paciente-actions">
-        <button class="btn edit" (click)="editarPaciente(paciente.id)">Editar</button>
-        <button class="btn delete" (click)="excluirPaciente(paciente.id)">Excluir</button>
+
+    <div class="mt-4">
+        <h5>Lista de Pacientes</h5>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let paciente of pacientes">
+                    <td>{{ paciente.nome }}</td>
+                    <td>{{ paciente.cpf }}</td>
+                    <td>
+                        <button class="btn btn-warning" (click)="editar(paciente)">Editar</button>
+                        <button class="btn btn-danger" (click)="excluir(paciente)">Excluir</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

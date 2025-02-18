@@ -1,20 +1,22 @@
+
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Paciente } from '../model/paciente';
 import { PacienteService } from '../service/paciente.service';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-lista',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule], 
   templateUrl: './lista.component.html',
   styleUrls: ['./lista.component.css'],
   providers: [PacienteService]
 })
 export class ListaComponent {
-  mensagem: string = "";
+  mensagem: string = '';
   pacientes: Paciente[] = [];
+  selecionado: Paciente | null = null;
 
   constructor(private service: PacienteService) {
     this.listarPacientes();
@@ -26,26 +28,42 @@ export class ListaComponent {
         this.pacientes = data;
       },
       error: (msg) => {
-        this.mensagem = "Ocorreu um erro ao listar os pacientes.";
+        this.mensagem = 'Ocorreu um erro ao carregar os pacientes.';
       }
     });
   }
 
-
-  editarPaciente(id: number): void {
-    console.log(`Editar paciente com ID: ${id}`);
-
+  editar(paciente: Paciente) {
+    this.selecionado = { ...paciente };
   }
 
-  excluirPaciente(id: number): void {
-    console.log(`Excluir paciente com ID: ${id}`);
-    this.service.excluir(id).subscribe({
+  salvar() {
+    if (this.selecionado) {
+      this.service.salvar(this.selecionado).subscribe({
+        next: (response) => {
+          this.mensagem = 'Paciente atualizado com sucesso!';
+          this.listarPacientes();
+          this.cancelarEdicao();
+        },
+        error: (err) => {
+          this.mensagem = 'Erro ao salvar alterações.';
+        }
+      });
+    }
+  }
+
+  cancelarEdicao() {
+    this.selecionado = null;
+  }
+
+  excluir(paciente: Paciente) {
+    this.service.excluir(paciente.id).subscribe({
       next: () => {
+        this.mensagem = 'Paciente excluído com sucesso!';
         this.listarPacientes();
-        this.mensagem = "Paciente excluído com sucesso!";
       },
-      error: (msg) => {
-        this.mensagem = "Erro ao excluir o paciente.";
+      error: (err) => {
+        this.mensagem = 'Erro ao excluir o paciente.';
       }
     });
   }
