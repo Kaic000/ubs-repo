@@ -1,110 +1,117 @@
-<p>Cadastro funciona!</p>
+<p class="form-title">Cadastro de Paciente</p>
 <h4>Formulário de Cadastro</h4>
 <link rel="stylesheet" href="cadastro.component.css">
 
-  <div class="form-group">
-    <label for="id">ID</label>
-    <input type="id" [(ngModel)]="obj.id" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="nome">Nome Completo</label>
-    <input type="nome" [(ngModel)]="obj.nome" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="cpf">CPF (se existente)</label>
-    <input type="cpf" [(ngModel)]="obj.cpf" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="nomeSocial">Nome Social</label>
-    <input type="nomeSocial" [(ngModel)]="obj.nomeSocial" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="nomeMae">Nome da Mãe</label>
-    <input type="nomeMae" [(ngModel)]="obj.nomeMae" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="nomePai">Nome do Pai</label>
-    <input type="nomePai" [(ngModel)]="obj.nomePai" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="dataNascimento">Data de Nascimento</label>
-    <input type="dataNascimento" [(ngModel)]="obj.dataNascimento" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="sexo">Sexo</label>
-    <input type="sexo" [(ngModel)]="obj.sexo" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="nacionalidade">Nacionalidade</label>
-    <input type="nacionalidade" [(ngModel)]="obj.nacionalidade" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="municipioNascimento">Município de Nascimento</label>
-    <input type="municipioNascimento" [(ngModel)]="obj.municipioNascimento" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="racaCor">Raça/Cor</label>
-    <input type="racaCor" [(ngModel)]="obj.racaCor" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="frequentaEscola">Frequenta Escola</label>
-    <input type="frequentaEscola" [(ngModel)]="obj.frequentaEscola" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="escolaridade">Escolaridade</label>
-    <input type="escolaridade" [(ngModel)]="obj.escolaridade" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="situacaoFamiliar">Situação Familiar</label>
-    <input type="situacaoFamiliar" [(ngModel)]="obj.situacaoFamiliar" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="vinculoEstabelecimento">Estabelecimento de Vínculo</label>
-    <input type="vinculoEstabelecimento" [(ngModel)]="obj.vinculoEstabelecido" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="cadastroEstabelecimento">Estabelecimento de Cadastro</label>
-    <input type="cadastroEstabelecimento" [(ngModel)]="obj.cadastroEstabelecido" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="deficiencia">Deficiência</label>
-    <input type="deficiencia" [(ngModel)]="obj.deficiencia" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="tipoDeficiencia">Tipo de Deficiência</label>
-    <input type="tipoDeficiencia" [(ngModel)]="obj.tipoDeficiencia" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="contatoCelular">Celular</label>
-    <input type="contatoCelular" [(ngModel)]="obj.contatoCelular" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="contatoResidencial">Residencial</label>
-    <input type="contatoResidencial" [(ngModel)]="obj.contatoResidencial" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="contatoComercial">Comercial</label>
-    <input type="contatoComercial" [(ngModel)]="obj.contatoComercial" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="contatoEmail">Email</label>
-    <input type="contatoEmail" [(ngModel)]="obj.contatoEmail" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="origemEndereco">Origem do Endereço</label>
-    <input type="origemEndereco" [(ngModel)]="obj.origemEndereco" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="dadosEndereco">Dados do Endereço</label>
-    <input type="dadosEndereco" [(ngModel)]="obj.dadosEndereco" class="form-input" />
-  </div>
-  <div class="form-group">
-    <label for="identidade">Identidade (se existente)</label>
-    <input type="identidade" [(ngModel)]="obj.identidade" class="form-input" />
-  </div>
-
-  <div class="row">
-    <div class="col">
+<div class="form-container">
+    <div class="form-group">
+      <label for="id">ID</label>
+      <input type="text" id="id" [(ngModel)]="obj.id" class="form-input" required />
+    </div>
+    <div class="form-group">
+      <label for="nome">Nome Completo</label>
+      <input type="text" id="nome" [(ngModel)]="obj.nome" class="form-input" required />
+    </div>
+    <div class="form-group">
+      <label for="cpf">CPF (se existente)</label>
+      <input type="text" id="cpf" [(ngModel)]="obj.cpf" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="nomeSocial">Nome Social</label>
+      <input type="text" id="nomeSocial" [(ngModel)]="obj.nomeSocial" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="nomeMae">Nome da Mãe</label>
+      <input type="text" id="nomeMae" [(ngModel)]="obj.nomeMae" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="nomePai">Nome do Pai</label>
+      <input type="text" id="nomePai" [(ngModel)]="obj.nomePai" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="dataNascimento">Data de Nascimento</label>
+      <input type="date" id="dataNascimento" [(ngModel)]="obj.dataNascimento" class="form-input" required />
+    </div>
+    <div class="form-group">
+      <label for="sexo">Sexo</label>
+      <select id="sexo" [(ngModel)]="obj.sexo" class="form-input" required>
+        <option value="" disabled selected>Selecione</option>
+        <option value="masculino">Masculino</option>
+        <option value="feminino">Feminino</option>
+        <option value="outro">Outro</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="nacionalidade">Nacionalidade</label>
+      <input type="text" id="nacionalidade" [(ngModel)]="obj.nacionalidade" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="municipioNascimento">Município de Nascimento</label>
+      <input type="text" id="municipioNascimento" [(ngModel)]="obj.municipioNascimento" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="racaCor">Raça/Cor</label>
+      <input type="text" id="racaCor" [(ngModel)]="obj.racaCor" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="frequentaEscola">Frequenta Escola</label>
+      <select id="frequentaEscola" [(ngModel)]="obj.frequentaEscola" class="form-input">
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="escolaridade">Escolaridade</label>
+      <input type="text" id="escolaridade" [(ngModel)]="obj.escolaridade" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="situacaoFamiliar">Situação Familiar</label>
+      <input type="text" id="situacaoFamiliar" [(ngModel)]="obj.situacaoFamiliar" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="vinculoEstabelecimento">Estabelecimento de Vínculo</label>
+      <input type="text" id="vinculoEstabele cimento" [(ngModel)]="obj.vinculoEstabelecido" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="cadastroEstabelecimento">Estabelecimento de Cadastro</label>
+      <input type="text" id="cadastroEstabelecimento" [(ngModel)]="obj.cadastroEstabelecido" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="deficiencia">Deficiência</label>
+      <input type="text" id="deficiencia" [(ngModel)]="obj.deficiencia" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="tipoDeficiencia">Tipo de Deficiência</label>
+      <input type="text" id="tipoDeficiencia" [(ngModel)]="obj.tipoDeficiencia" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="contatoCelular">Celular</label>
+      <input type="tel" id="contatoCelular" [(ngModel)]="obj.contatoCelular" class="form-input" required />
+    </div>
+    <div class="form-group">
+      <label for="contatoResidencial">Residencial</label>
+      <input type="tel" id="contatoResidencial" [(ngModel)]="obj.contatoResidencial" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="contatoComercial">Comercial</label>
+      <input type="tel" id="contatoComercial" [(ngModel)]="obj.contatoComercial" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="contatoEmail">Email</label>
+      <input type="email" id="contatoEmail" [(ngModel)]="obj.contatoEmail" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="origemEndereco">Origem do Endereço</label>
+      <input type="text" id="origemEndereco" [(ngModel)]="obj.origemEndereco" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="dadosEndereco">Dados do Endereço</label>
+      <input type="text" id="dadosEndereco" [(ngModel)]="obj.dadosEndereco" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label for="identidade">Identidade (se existente)</label>
+      <input type="text" id="identidade" [(ngModel)]="obj.identidade" class="form-input" />
+    </div>
+    <div class="form-group">
       <button (click)="salvar();" class="submit-btn">Enviar</button>
     </div>
-  </div>
+</div>
