@@ -1,4 +1,3 @@
-
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -8,7 +7,7 @@ import { PacienteService } from '../service/paciente.service';
 @Component({
   selector: 'app-lista',
   standalone: true,
-  imports: [CommonModule, FormsModule], 
+  imports: [CommonModule, FormsModule],
   templateUrl: './lista.component.html',
   styleUrls: ['./lista.component.css'],
   providers: [PacienteService]
@@ -16,6 +15,8 @@ import { PacienteService } from '../service/paciente.service';
 export class ListaComponent {
   mensagem: string = '';
   pacientes: Paciente[] = [];
+  pacientesFiltrados: Paciente[] = [];
+  filtro: string = ''; // Variável de filtro
   selecionado: Paciente | null = null;
 
   constructor(private service: PacienteService) {
@@ -26,11 +27,24 @@ export class ListaComponent {
     this.service.listar().subscribe({
       next: (data) => {
         this.pacientes = data;
+        this.pacientesFiltrados = data; // Inicializa a lista filtrada com todos os pacientes
       },
       error: (msg) => {
         this.mensagem = 'Ocorreu um erro ao carregar os pacientes.';
       }
     });
+  }
+
+  // Método para filtrar os pacientes
+  filtrarPacientes() {
+    if (this.filtro === '') {
+      this.pacientesFiltrados = this.pacientes;
+    } else {
+      this.pacientesFiltrados = this.pacientes.filter(paciente =>
+        paciente.nome.toLowerCase().includes(this.filtro.toLowerCase()) ||
+        paciente.cpf.includes(this.filtro)
+      );
+    }
   }
 
   editar(paciente: Paciente) {
